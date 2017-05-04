@@ -82,4 +82,24 @@ var vm = new Vue({
         console.log('a is: ' + this.a)
     }
 })
+
+var app8 = new Vue({
+    el: "#app-8",
+    data: {
+        movie:{}
+    },
+    created: function () {
+        {
+            // GET /someUrl 
+            this.$http.get('http://www.omdbapi.com/?t=Rear+WIndow')
+            .then(function(res) {
+                this.movie = res.body;
+             
+            }).catch(function(err){
+                // error callback 
+                console.log(err)
+            });
+        }
+    }
+})
 // -> "a is: 1"
