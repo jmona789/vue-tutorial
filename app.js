@@ -20,33 +20,37 @@ var app3 = new Vue({
 })
 
 var app4 = new Vue({
-  el: '#app-4',
-  data: {
-    todos: [
-      { text: 'Learn JavaScript' },
-      { text: 'Learn Vue' },
-      { text: 'Build something awesome' }
-    ]
-  }
+    el: '#app-4',
+    data: {
+        todos: [
+            { text: 'Learn JavaScript' },
+            { text: 'Learn Vue' },
+            { text: 'Build something awesome' }
+        ]
+    }
 })
 
 var app5 = new Vue({
-  el: '#app-5',
-  data: {
-    message: 'Hello Vue.js!'
-  },
-  methods: {
-    reverseMessage: function () {
-      this.message = this.message.split('').reverse().join('')
+    el: '#app-5',
+    data: {
+        message: 'Hello Vue.js!'
+    },
+    methods: {
+        reverseMessage: function () {
+        this.message = this.message.split('').reverse().join('')
+        }
     }
-  }
 })
 
 var app6 = new Vue({
-  el: '#app-6',
-  data: {
-    message: 'Hello Vue!'
-  }
+    el: '#app-6',
+    data: {
+        message: 'Hello Vue!'
+    },
+    created: function () {
+        var that = this;
+        setTimeout(function(){ that.message = "Hello again Vue!"; }, 2000);
+    }
 })
 
 Vue.component('todo-item', {
@@ -67,3 +71,15 @@ var app7 = new Vue({
     ]
   }
 })
+
+var vm = new Vue({
+    el: '#app-7',
+    data: {
+        a: 1
+    },
+    created: function () {
+        // `this` points to the vm instance
+        console.log('a is: ' + this.a)
+    }
+})
+// -> "a is: 1"
